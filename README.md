@@ -21,3 +21,4 @@ clients (le professeur et l'assistant), ce qui permet de rediriger le projet si 
 
 ## Descrption de l'équipe
 
+Une nouvelle journée commence
