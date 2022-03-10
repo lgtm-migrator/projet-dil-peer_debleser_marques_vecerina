@@ -6,7 +6,9 @@
 
     <groupId>org.example</groupId>
     <artifactId>projet-dil-peer_debleser_marques_vecerina</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <dependencies>
         <dependency>
             <groupId>info.picocli</groupId>
