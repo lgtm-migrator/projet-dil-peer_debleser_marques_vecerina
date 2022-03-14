@@ -22,14 +22,16 @@ Nous utilisons la méthodologie agile SCRUM vue en cours, elle nous semble adapt
 
 ## Mode de collaboration
 Afin d'avoir une bonne collaboration dans l'équipe, nous avons établi un accord sur la
-façon de travailler. Nous créons pour chaque tâche une issue Git-hub, un membre annonce
+façon de travailler. Nous créons pour chaque tâche une issue Git, un membre annonce
 qu'il se charge de la tâche et l'issue lui est assignée. Nous créons une nouvelle branche pour
 chaque issue, afin que le membre qui s'en charge travaille sur cette branche. Une fois terminé,
 il effectue une pull-request pour merger sa branche avec la branche principale. Suite à ça,
 2 autres membres vont lire (review) le travail établi en examinant la pull-request, puis valider 
 si cela leur convient ou ne pas valider et annoncer les changements à effectuer pour cette
-tâche. Une fois que 2 reviews ont été fait pour valider la pull-request, on peut merger
-les branches et nous supprimons la branches propre à la tâche terminée.
+tâche. Une fois que 2 reviews ont été faites pour valider la pull-request, on peut merger
+les branches et nous supprimons la branche propre à la tâche terminée.  
+L'ensemble des tâches à faire seront listées sous forme de story, nous sommes en 
+train de mettre ce système en place.
 
 
 
@@ -38,11 +40,13 @@ les branches et nous supprimons la branches propre à la tâche terminée.
 Dès le début du projet, certains rôles s'installent selon les connaissances et l'expérience
 de chacun. 
 
-Ivan Vecerina et André Marques ont de bonnes connaissances pour l'utilisation de Git-hub 
+Ivan Vecerina et André Marques ont de bonnes connaissances pour l'utilisation de Git
 ce qui les laisse mener davantage le début du projet. Dimitri De Bleser et Vincent  Peer
 ont quelques connaissances de bases, ils découvrent plusieurs outils et en profite pour 
 améliorer leurs connaissances. 
-Ivan et André prennent le rôle de scrum master en s'auto attribuant des tâches, 
+Ivan prend le rôle de scrum master, du moins pour débuter le projet et nous verrons 
+par la suite s'il désire continuer ou si nous changeons les rôles. 
+André prend les tâches qui nécessitent des connaissances sur Git, maven et les dépendances, etc.
 Dimitri et Vincent prennent des tâches à leur convenance. 
 Dans ce projet, les product owner sont le prof et l'assistant.
 
