@@ -1,9 +1,13 @@
-# Projet DIL Peer, De Bleser, Marques et Vecerina 
+### <div align="right"> 31 mars 2022</div>  
+### <div align="left">André Nora Marques, Ivan Vecerina, Dimitri De Bleser et Vincent Peer</div>
+# <center> Projet DIL<center>
+
 
 ## Introduction
 Le but de ce travail pratique et de prendre en main les outils et les méthodologies
-de travail que nous devrons utiliser lors des travaux pratiques futurs. Lors de 
-ce projet nous utilisons un projet partagé sur Github dans lequel nous
+de travail que nous devrons utiliser lors des travaux pratiques futurs.  
+Nous avons un produit à développer pour 
+Lors de ce projet nous utilisons un projet partagé sur Github dans lequel nous
 répartissons les tâches. Nous définissons un code de conduite et une license qui
 visent à établir des règles que les membres sont priés de respecter. Enfin nous
 créons un ensemble de commandes qui sera implémenté par la suite.
