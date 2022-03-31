@@ -6,7 +6,7 @@
 ## Introduction
 Le but de ce travail pratique et de prendre en main les outils et les méthodologies
 de travail que nous devrons utiliser lors des travaux pratiques futurs.  
-Nous avons un produit à développer pour 
+Nous avons un produit à développer qui consiste à  pour notre professeur M. Bertil 
 Lors de ce projet nous utilisons un projet partagé sur Github dans lequel nous
 répartissons les tâches. Nous définissons un code de conduite et une license qui
 visent à établir des règles que les membres sont priés de respecter. Enfin nous
