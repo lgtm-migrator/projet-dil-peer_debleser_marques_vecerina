@@ -1,7 +1,3 @@
-### <div align="right"> 31 mars 2022</div>
-### <div align="left">André Nora Marques, Ivan Vecerina, Dimitri De Bleser et Vincent Peer</div>
-# <center> Projet DIL<center>
-
 
 ## Introduction
 Le but de ce travail pratique et de prendre en main les outils et les méthodologies
@@ -53,6 +49,3 @@ par la suite s'il désire continuer ou si nous changeons les rôles.
 André prend les tâches qui nécessitent des connaissances sur Git, maven et les dépendances, etc.
 Dimitri et Vincent prennent des tâches à leur convenance.
 Dans ce projet, les product owner sont le prof et l'assistant.
-
-
-
