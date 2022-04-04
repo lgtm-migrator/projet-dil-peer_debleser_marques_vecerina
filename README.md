@@ -4,6 +4,7 @@
 
 ### Table des matières
 
+
 * [Introdution](#intro)
 * [Choix du modèle de processus logiciel](#ChoixModele)
 * [Mode de collaboration](#ModeCollab)
@@ -15,17 +16,21 @@
 
 ## Introduction <a class="anchor" id="intro"></a>
 Le but de ce travail pratique et de prendre en main les outils et les méthodologies
+
 de travail que nous serons amenés à utiliser lors de nos futurs projets dans le monde professionnel.
 Le produit à développer représente un ensemble de commande du type build, init, clean, etc.
 Nous allons réaliser plusieurs sprints pour contribuer étape par étape à la réalisation de
 ce projet.
 Nos clients sont notre professeur M. Bertil Chapuis et notre assistant M. Miguel Santamaria.
+
 Lors de ce projet nous utilisons un projet partagé sur Github dans lequel nous
 répartissons les tâches. Nous définissons un code de conduite et une license qui
 visent à établir des règles que les membres sont priés de respecter.
 
+
 ## Choix du modèle de processus logiciel <a class="anchor" id="ChoixModele"></a>
 Nous utilisons un modèle de processus de type agile.
+
 Plusieurs ascpects nous dirigent vers ce modèle. Premièrement nous n'avons
 jamais établi un tel projet auparavant, ce qui ne nous permet pas de prédire
 les tâches exactes à réaliser ni le temps qu'elles prendraient pour être mises
@@ -133,7 +138,4 @@ sprints à venir.
 
 Note: Pour le moment, ce readme est le même sur le repository rapport et sur ce repository, mais nous allons les séparer dès le prochain sprint et
    structurer ces readme en fonction de leur repository.
-
-
-
 
