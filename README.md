@@ -131,7 +131,8 @@ pour le deuxième sprint, Vincent s'occupera alors d'implémenter des commandes 
 De plus, une petite partie de nos commits n'étaient pas signés, nous allons donc faire en sorte qu'ils soient tous signés pour les
 sprints à venir.
 
-
+Note: Pour le moment, ce readme est le même sur le repository rapport et sur ce repository, mais nous allons les séparer dès le prochain sprint et
+   structurer ces readme en fonction de leur repository.
 
 
 
