@@ -34,10 +34,10 @@ public class ConvertorToHtml {
 
     public static void createHtmlFile(String path, String fileName)throws IOException{
 
-        Files.createFile(Path.of(path + fileName));
+        Files.createFile(Path.of(path + "\\build" + fileName + ".html"));
         try{
             BufferedWriter bw = new BufferedWriter(
-                    new OutputStreamWriter(new FileOutputStream(path), StandardCharsets.UTF_8));
+                    new OutputStreamWriter(new FileOutputStream(path + fileName + ".html"), StandardCharsets.UTF_8));
             bw.write(convertMarkdownToHTML(fileToString(fileName + ".md")));
 
         } catch (FileNotFoundException e) {
