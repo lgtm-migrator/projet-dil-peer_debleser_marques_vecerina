@@ -8,6 +8,24 @@ public class TemplateManager {
     private static final String templateDirName = "templates";
     private final String siteName;
 
+    private static final String templateMenu =
+            "<ul>\n " +
+                    "   <li><a href=\"/index.html\">home</a></li>\n" +
+                    "   <li><a href=\"/content/page.html\">page</a></li>\n" +
+                    "</ul>\n";
+
+    private static final String templateLayout =
+            "<html lang=\"en\"\n" +
+                    "<head>\n" +
+                    "   <meta charset=\"utf-8\">\n" +
+                    "   <title>{{ site.titre }} | {{ page.titre }}</title>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "   {% include menu.html }\n" +
+                    "   {{ content }}\n" +
+                    "</body>\n" +
+                    "</html>\n";
+
     public TemplateManager(String name){
         siteName = name;
     }
