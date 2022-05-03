@@ -46,16 +46,26 @@ public class TemplateManager {
         //Create menu.html
         try{
             BufferedWriter bw = new BufferedWriter(
-                    new OutputStreamWriter(new FileOutputStream(siteName + "/" + "menu.html"), StandardCharsets.UTF_8));
-        } catch (FileNotFoundException e) {
+                    new OutputStreamWriter(new FileOutputStream(siteName + "/" + "menu.html"),
+                            StandardCharsets.UTF_8));
+
+            bw.write(templateMenu);
+            bw.flush();
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
         //Create layout.html
         try{
             BufferedWriter bw = new BufferedWriter(
-                    new OutputStreamWriter(new FileOutputStream(siteName + "/" + "layout.html"), StandardCharsets.UTF_8));
-        } catch (FileNotFoundException e) {
+                    new OutputStreamWriter(new FileOutputStream(siteName + "/" + "layout.html"),
+                            StandardCharsets.UTF_8));
+
+            bw.write(templateLayout);
+            bw.flush();
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
