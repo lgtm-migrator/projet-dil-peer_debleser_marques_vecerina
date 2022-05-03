@@ -60,7 +60,7 @@ public class TemplateManager {
         }
     }
 
-    private String handlebarParse(Object o, String fileName){
+    public String handlebarParse(Object o, String fileName){
         TemplateLoader loader = new ClassPathTemplateLoader();
         loader.setPrefix("/template");
         loader.setSuffix(".html");
