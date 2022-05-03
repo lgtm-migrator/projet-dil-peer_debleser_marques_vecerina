@@ -6,8 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>projet-dil-peer_debleser_marques_vecerina</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.2</version>
 
     <repositories>
         <repository>
@@ -34,6 +33,15 @@
             <version>0.18.2</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
