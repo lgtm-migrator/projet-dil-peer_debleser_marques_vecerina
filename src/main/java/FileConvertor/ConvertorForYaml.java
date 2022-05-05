@@ -4,19 +4,24 @@ import org.yaml.snakeyaml.Yaml;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Map;
 
 public class ConvertorForYaml {
-    public static Map<String, Object> readYaml(String path) throws IOException{
-        Map<String, Object> data = null;
-        try{
-            FileInputStream fis = new FileInputStream(path);
-            Yaml yaml = new Yaml();
-            data = yaml.load(fis);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
+    private static final Yaml yaml = new Yaml();
+
+    public static Map<String, Object> readYaml(Path path) throws IOException{
+
+
+        Map<String, Object> data = yaml.load(Files.readString(path.resolve("config.yaml")));
+
+        return data;
+    }
+
+    public static Map<String, Object> readYaml(String file) throws IOException{
+        Map<String, Object> data = yaml.load(file);
         return data;
     }
 }

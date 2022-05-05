@@ -35,7 +35,7 @@ public class ConvertorToHtml {
     public static void createHtmlFile(String path, String fileName)throws IOException{
 
         Files.createFile(Path.of(path + "\\build" + fileName + ".html"));
-        try{
+        try {
             BufferedWriter bw = new BufferedWriter(
                     new OutputStreamWriter(new FileOutputStream(path + fileName + ".html"), StandardCharsets.UTF_8));
             bw.write(convertMarkdownToHTML(fileToString(fileName + ".md")));
