@@ -12,12 +12,9 @@ public class ConvertorForYaml {
 
     private static final Yaml yaml = new Yaml();
 
-    public static Map<String, Object> readYaml(Path path) throws IOException{
-
-
-        Map<String, Object> data = yaml.load(Files.readString(path.resolve("config.yaml")));
-
-        return data;
+    public static Map<String, Object> parseYaml(Path path) throws IOException{
+        Map<String, Object> dataConfig = yaml.load(Files.readString(path.resolve("config.yaml")));
+        return dataConfig;
     }
 
     public static Map<String, Object> readYaml(String file) throws IOException{

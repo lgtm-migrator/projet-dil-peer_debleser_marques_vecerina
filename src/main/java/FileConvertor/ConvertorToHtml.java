@@ -10,6 +10,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class ConvertorToHtml {
+
+    private final Parser parser = Parser.builder().build();
+    private final HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
+
     private static String fileToString(String path) throws IOException{
         StringBuilder text = new StringBuilder();
         try{
@@ -26,9 +30,7 @@ public class ConvertorToHtml {
     }
 
     private static String convertMarkdownToHTML(String markdown) {
-        Parser parser = Parser.builder().build();
         Node document = parser.parse(markdown);
-        HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
         return htmlRenderer.render(document);
     }
 

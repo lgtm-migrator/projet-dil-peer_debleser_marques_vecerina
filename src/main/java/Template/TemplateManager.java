@@ -23,7 +23,7 @@ public class TemplateManager {
             "<html lang=\"en\"\n" +
                     "<head>\n" +
                     "   <meta charset=\"utf-8\">\n" +
-                    "   <title>{{ site.titre }} | {{ page.titre }}</title>\n" +
+                    "   <title>{{ site.title }} | {{ page.title }}</title>\n" +
                     "</head>\n" +
                     "<body>\n" +
                     "   {% include menu.html }\n" +
@@ -69,11 +69,12 @@ public class TemplateManager {
         }
     }
 
-    public String handlebarParse(Object o, String fileName){
+    public static String handlebarParse(Object o, String fileName){
         TemplateLoader loader = new ClassPathTemplateLoader();
         loader.setPrefix("/template");
         loader.setSuffix(".html");
         Handlebars handlebars = new Handlebars(loader);
+        handlebars.registerHelper("md", new MarkdownHelper());
 
         try {
             Template template = handlebars.compile(fileName);
