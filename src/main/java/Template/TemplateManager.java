@@ -8,6 +8,14 @@ import com.github.jknack.handlebars.io.TemplateLoader;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Class to generate template for the site
+ * @author Dimitri De Bleser
+ * @author André Marques Nora
+ * @author Vincent Peer
+ * @author Ivan Vecerina
+ * @version 1.0
+ */
 public class TemplateManager {
 
     private static final String templateDirName = "templates";
@@ -31,10 +39,17 @@ public class TemplateManager {
                     "</body>\n" +
                     "</html>\n";
 
+    /**
+     * Constructor
+     * @param name of the site
+     */
     public TemplateManager(String name){
         siteName = name;
     }
 
+    /**
+     * Method to create the template files
+     */
     public void createTemplateFiles(){
         File templateDir = new File("/" + templateDirName);
         if(templateDir.mkdir())
@@ -69,6 +84,12 @@ public class TemplateManager {
         }
     }
 
+    /**
+     * Method to parse the template files
+     * @param o to apply the parse
+     * @param fileName name of file
+     * @return content of template
+     */
     public static String handlebarParse(Object o, String fileName){
         TemplateLoader loader = new ClassPathTemplateLoader();
         loader.setPrefix("/template");

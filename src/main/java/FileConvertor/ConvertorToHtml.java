@@ -9,11 +9,25 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Class to convert a markdown file to a html one
+ * @author Dimitri De Bleser
+ * @author André Marques Nora
+ * @author Vincent Peer
+ * @author Ivan Vecerina
+ * @version 1.0
+ */
 public class ConvertorToHtml {
 
     private final Parser parser = Parser.builder().build();
     private final HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
 
+    /**
+     * Method to convert the content of a file to a string
+     * @param path of the file
+     * @return content of file
+     * @throws IOException if can't find the file
+     */
     private static String fileToString(String path) throws IOException{
         StringBuilder text = new StringBuilder();
         try{
@@ -29,11 +43,22 @@ public class ConvertorToHtml {
         return text.toString();
     }
 
+    /**
+     * Method to convert markdown to html
+     * @param markdown the content of a markdown file
+     * @return the content of the html file
+     */
     private static String convertMarkdownToHTML(String markdown) {
         Node document = parser.parse(markdown);
         return htmlRenderer.render(document);
     }
 
+    /**
+     * Method to create html files
+     * @param path of the file
+     * @param fileName name of the file
+     * @throws IOException if can't find file
+     */
     public static void createHtmlFile(String path, String fileName)throws IOException{
 
         Files.createFile(Path.of(path + "\\build" + fileName + ".html"));
