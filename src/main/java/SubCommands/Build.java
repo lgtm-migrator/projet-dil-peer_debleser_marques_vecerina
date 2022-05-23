@@ -30,7 +30,7 @@ public class Build implements Callable<Integer> {
 
         Map<String, Object> configuration = ConvertorForYaml.parseYaml(site);
 
-        String template = TemplateManager.handlebarParse()
+        String template = TemplateManager.handlebarParse();
         Files.walk(site)
                 .filter(file -> file.toString().endsWith(".md"))
                 .forEach(source -> {
