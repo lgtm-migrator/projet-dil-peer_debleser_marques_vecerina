@@ -1,5 +1,7 @@
 package FileConvertor;
 
+import com.github.jknack.handlebars.Helper;
+import com.github.jknack.handlebars.Options;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -17,10 +19,10 @@ import java.nio.file.Path;
  * @author Ivan Vecerina
  * @version 1.0
  */
-public class ConvertorToHtml {
+public class ConvertorToHtml implements Helper<String> {
 
-    private final Parser parser = Parser.builder().build();
-    private final HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
+    private static final Parser parser = Parser.builder().build();
+    private static final HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
 
     /**
      * Method to convert the content of a file to a string
@@ -61,7 +63,7 @@ public class ConvertorToHtml {
      */
     public static void createHtmlFile(String path, String fileName)throws IOException{
 
-        Files.createFile(Path.of(path + "\\build" + fileName + ".html"));
+        //Files.createFile(Path.of(path + "\\build" + fileName + ".html"));
         try {
             BufferedWriter bw = new BufferedWriter(
                     new OutputStreamWriter(new FileOutputStream(path + fileName + ".html"), StandardCharsets.UTF_8));
@@ -70,5 +72,10 @@ public class ConvertorToHtml {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Object apply(String s, Options options) throws IOException {
+        return null;
     }
 }

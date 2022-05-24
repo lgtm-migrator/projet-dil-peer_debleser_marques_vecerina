@@ -1,6 +1,9 @@
 package Template;
 
+import FileConvertor.ConvertorToHtml;
 import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Helper;
+import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.github.jknack.handlebars.io.TemplateLoader;
@@ -39,12 +42,8 @@ public class TemplateManager {
                     "</body>\n" +
                     "</html>\n";
 
-    /**
-     * Constructor
-     * @param name of the site
-     */
-    public TemplateManager(String name){
-        siteName = name;
+    public TemplateManager(String siteName) {
+        this.siteName = siteName;
     }
 
     /**
@@ -86,24 +85,15 @@ public class TemplateManager {
 
     /**
      * Method to parse the template files
-     * @param o to apply the parse
-     * @param fileName name of file
      * @return content of template
      */
-    public static String handlebarParse(Object o, String fileName){
+    public static Template handlebarParse() throws IOException {
         TemplateLoader loader = new ClassPathTemplateLoader();
         loader.setPrefix("/template");
         loader.setSuffix(".html");
         Handlebars handlebars = new Handlebars(loader);
-        handlebars.registerHelper("md", new MarkdownHelper());
+        handlebars.registerHelper("md", new ConvertorToHtml());
 
-        try {
-            Template template = handlebars.compile(fileName);
-            return template.apply(o);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return handlebars.compile("layout");
     }
 }

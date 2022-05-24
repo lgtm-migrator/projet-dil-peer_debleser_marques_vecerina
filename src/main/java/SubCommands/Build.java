@@ -11,7 +11,7 @@ import FileConvertor.ConvertorForYaml;
 import FileConvertor.ConvertorToHtml;
 import Parser.PageParser;
 import Template.TemplateManager;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
+import com.github.jknack.handlebars.Template;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -30,12 +30,13 @@ public class Build implements Callable<Integer> {
 
         Map<String, Object> configuration = ConvertorForYaml.parseYaml(site);
 
-        String template = TemplateManager.handlebarParse();
+        Template template = TemplateManager.handlebarParse();
+
         Files.walk(site)
                 .filter(file -> file.toString().endsWith(".md"))
                 .forEach(source -> {
                     try {
-                        String html = PageParser.parse(site, configuration);
+                        String html = PageParser.parse(site, configuration, template);
 
                         Path target = site.resolve("build")
                                 .resolve(site.relativize(source).toString().replace(".md", ".html"));

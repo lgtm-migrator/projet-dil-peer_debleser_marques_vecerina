@@ -2,12 +2,9 @@ package Parser;
 
 import FileConvertor.ConvertorForYaml;
 import com.github.jknack.handlebars.Context;
-import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.context.JavaBeanValueResolver;
 import com.github.jknack.handlebars.context.MapValueResolver;
-import com.github.jknack.handlebars.io.FileTemplateLoader;
-import com.github.jknack.handlebars.io.TemplateLoader;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,8 +28,7 @@ public class PageParser {
      * @return the content of the page.md in String
      * @throws IOException
      */
-    public static String parse(Path path, Map<String, Object> config) throws IOException {
-        Template template = new Template();
+    public static String parse(Path path, Map<String, Object> config, Template template) throws IOException {
 
         String[] contents = Files.readString(path).split("{---}");
         if(contents.length != 2)
