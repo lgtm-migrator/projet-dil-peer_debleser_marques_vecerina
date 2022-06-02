@@ -45,37 +45,9 @@ public class ConvertorToHtml implements Helper<String> {
         return text.toString();
     }
 
-    /**
-     * Method to convert markdown to html
-     * @param markdown the content of a markdown file
-     * @return the content of the html file
-     */
-    private static String convertMarkdownToHTML(String markdown) {
-        Node document = parser.parse(markdown);
-        return htmlRenderer.render(document);
-    }
-
-    /**
-     * Method to create html files
-     * @param path of the file
-     * @param fileName name of the file
-     * @throws IOException if can't find file
-     */
-    public static void createHtmlFile(String path, String fileName)throws IOException{
-
-        //Files.createFile(Path.of(path + "\\build" + fileName + ".html"));
-        try {
-            BufferedWriter bw = new BufferedWriter(
-                    new OutputStreamWriter(new FileOutputStream(path + fileName + ".html"), StandardCharsets.UTF_8));
-            bw.write(convertMarkdownToHTML(fileToString(fileName + ".md")));
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public Object apply(String s, Options options) throws IOException {
-        return null;
+        Node document = parser.parse(s);
+        return htmlRenderer.render(document);
     }
 }
