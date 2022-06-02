@@ -1,0 +1,11 @@
+AppVersionProvider.class
+SubCommands\Clean.class
+SubCommands\Serve.class
+FileConvertor\ConvertorForYaml.class
+FileConvertor\ConvertorToHtml.class
+Parser\PageParser.class
+Statique.class
+SubCommands\Init.class
+Template\TemplateManager.class
+SubCommands\Build.class
+SubCommands\Utils.class
