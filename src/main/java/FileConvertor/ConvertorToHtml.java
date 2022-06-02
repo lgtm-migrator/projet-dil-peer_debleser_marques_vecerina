@@ -1,7 +1,11 @@
 package FileConvertor;
 
+import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
+import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.io.FileTemplateLoader;
+import com.github.jknack.handlebars.io.TemplateLoader;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -21,33 +25,23 @@ import java.nio.file.Path;
  */
 public class ConvertorToHtml implements Helper<String> {
 
-    private static final Parser parser = Parser.builder().build();
-    private static final HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
+    private final Parser parser = Parser.builder().build();
+    private final HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
 
-    /**
-     * Method to convert the content of a file to a string
-     * @param path of the file
-     * @return content of file
-     * @throws IOException if can't find the file
-     */
-    private static String fileToString(String path) throws IOException{
-        StringBuilder text = new StringBuilder();
-        try{
-            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8));
-            int r;
-            while( (r = br.read()) != -1)
-                text.append((char) r);
+    public static Template getMdTemplate(Path source) throws IOException {
+        TemplateLoader loader = new FileTemplateLoader(source.resolve("template").toFile());
+        Handlebars handlebars = new Handlebars(loader);
+        handlebars.registerHelper("md", new ConvertorToHtml());
+        return handlebars.compile("layout");
+    }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return text.toString();
+    private Object mdToHtml(String markdown){
+        Node document = parser.parse(markdown);
+        return htmlRenderer.render(document);
     }
 
     @Override
-    public Object apply(String s, Options options) throws IOException {
-        Node document = parser.parse(s);
-        return htmlRenderer.render(document);
+    public Object apply(String s, Options options){
+        return mdToHtml(s);
     }
 }

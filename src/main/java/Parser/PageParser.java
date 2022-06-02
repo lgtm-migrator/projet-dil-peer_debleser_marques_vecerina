@@ -30,7 +30,7 @@ public class PageParser {
      */
     public static String parse(Path path, Map<String, Object> config, Template template) throws IOException {
 
-        String[] contents = Files.readString(path).split("{---}");
+        String[] contents = Files.readString(path).split("---");
         if(contents.length != 2)
             throw new RuntimeException("The page is malformed!");
 
