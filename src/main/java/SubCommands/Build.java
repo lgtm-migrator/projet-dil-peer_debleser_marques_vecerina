@@ -1,10 +1,17 @@
 package SubCommands;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.Map;
 import java.util.concurrent.Callable;
 
+import FileConvertor.ConvertorForYaml;
+import FileConvertor.ConvertorToHtml;
+import Parser.PageParser;
+import Template.TemplateManager;
+import com.github.jknack.handlebars.Template;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -21,23 +28,26 @@ public class Build implements Callable<Integer> {
 
     @Override public Integer call() throws IOException {
 
-        String dir = "\\build";
-        File directory = new File(dir);
-        boolean res;
-        if(!(res = directory.mkdir())){
-            throw new IOException("Error : creating directory");
-        }
+        Map<String, Object> configuration = ConvertorForYaml.parseYaml(site);
 
+        Template template = TemplateManager.handlebarParse();
 
+        Files.walk(site)
+                .filter(file -> file.toString().endsWith(".md"))
+                .forEach(source -> {
+                    try {
+                        String html = PageParser.parse(site, configuration, template);
+
+                        Path target = site.resolve("build")
+                                .resolve(site.relativize(source).toString().replace(".md", ".html"));
+                        Files.createDirectories(target.getParent());
+                        Files.writeString(target, html, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
 
         return 0;
-    }
-
-    public static String convertMarkdownToHTML(String markdown) {
-        Parser parser = Parser.builder().build();
-        Node document = parser.parse(markdown);
-        HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
-        return htmlRenderer.render(document);
     }
 }
 
