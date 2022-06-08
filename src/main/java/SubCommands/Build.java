@@ -10,6 +10,7 @@ import java.util.concurrent.Callable;
 import FileConvertor.ConvertorForYaml;
 import FileConvertor.ConvertorToHtml;
 import Parser.PageParser;
+import Watcher.Watcher;
 import com.github.jknack.handlebars.Template;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -22,7 +23,15 @@ public class Build implements Callable<Integer> {
     @CommandLine.Parameters(paramLabel = "SITE", description = "The site to build")
     public Path site;
 
+    @CommandLine.Option(names = {"-w", "--watch"}, description = "build site for every update")
+    private static boolean beingWatched;
+
     @Override public Integer call() throws IOException {
+
+        if(beingWatched){
+            var watcher = new Watcher(site);
+            watcher.watch(String.valueOf(Path.of(site.toString())));
+        }
 
         Map<String, Object> configuration = ConvertorForYaml.parseYaml(site);
 
