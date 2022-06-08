@@ -16,7 +16,6 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 
-
 @Command(name = "build", description = "Build a static site")
 public class Build implements Callable<Integer> {
 
@@ -31,13 +30,15 @@ public class Build implements Callable<Integer> {
         if(beingWatched){
             var watcher = new Watcher(site);
             watcher.watch(String.valueOf(Path.of(site.toString())));
+            beingWatched = false;
         }
 
         Map<String, Object> configuration = ConvertorForYaml.parseYaml(site);
 
         Template template = ConvertorToHtml.getMdTemplate(site);
 
-        new CommandLine(new Clean());
+
+        new CommandLine(new Clean()).execute(site.toString());
 
         Files.walk(site)
                 .filter(file -> file.toString().endsWith(".md"))
