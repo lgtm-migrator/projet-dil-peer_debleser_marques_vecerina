@@ -10,11 +10,7 @@ import java.util.concurrent.Callable;
 import FileConvertor.ConvertorForYaml;
 import FileConvertor.ConvertorToHtml;
 import Parser.PageParser;
-import Template.TemplateManager;
 import com.github.jknack.handlebars.Template;
-import org.commonmark.node.Node;
-import org.commonmark.parser.Parser;
-import org.commonmark.renderer.html.HtmlRenderer;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -30,7 +26,9 @@ public class Build implements Callable<Integer> {
 
         Map<String, Object> configuration = ConvertorForYaml.parseYaml(site);
 
-        Template template = TemplateManager.handlebarParse();
+        Template template = ConvertorToHtml.getMdTemplate(site);
+
+        new CommandLine(new Clean());
 
         Files.walk(site)
                 .filter(file -> file.toString().endsWith(".md"))
@@ -47,7 +45,9 @@ public class Build implements Callable<Integer> {
                     }
                 });
 
-        return 0;
+        System.out.println("Static website built!");
+
+        return CommandLine.ExitCode.OK;
     }
 }
 

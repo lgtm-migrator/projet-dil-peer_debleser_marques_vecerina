@@ -18,6 +18,7 @@ import java.util.Map;
  */
 public class ConvertorForYaml {
 
+    public static final String CONFIG = "config.yaml";
     private static final Yaml yaml = new Yaml();
 
     /**
@@ -27,7 +28,7 @@ public class ConvertorForYaml {
      * @throws IOException
      */
     public static Map<String, Object> parseYaml(Path path) throws IOException{
-        Map<String, Object> dataConfig = yaml.load(Files.readString(path.resolve("config.yaml")));
+        Map<String, Object> dataConfig = yaml.load(Files.readString(path.resolve(CONFIG)));
         return dataConfig;
     }
 
