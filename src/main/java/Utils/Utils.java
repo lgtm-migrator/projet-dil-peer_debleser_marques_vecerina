@@ -7,6 +7,9 @@ import java.nio.file.Path;
 /**
  * Utilities needed for this project
  * @author De Bleser Dimitri
+ * @author Vecerina Ivan
+ * @author Peer Vincent
+ * @author Marques Nora Andre
  */
 public class Utils {
 
