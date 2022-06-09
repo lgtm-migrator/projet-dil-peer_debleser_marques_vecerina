@@ -1,7 +1,10 @@
 package SubCommands;
 
+import Watcher.Watcher;
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
+
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.concurrent.Callable;
 import picocli.CommandLine;
@@ -17,8 +20,18 @@ public class Serve implements Callable<Integer> {
     @Parameters(paramLabel = "SITE", description = "The site to serve")
     public Path site;
 
+    @CommandLine.Option(names = {"-w", "--watch"}, description = "build site for every update")
+    private static boolean beingWatched;
+
     @Override
-    public Integer call() {
+    public Integer call() throws IOException {
+
+        if(beingWatched){
+            var watcher = new Watcher(site);
+            watcher.watch(String.valueOf(Path.of(site.toString())));
+            beingWatched = false;
+        }
+
         // Build the site
         new CommandLine(new Build()).execute(site.toString());
 
