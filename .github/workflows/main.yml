@@ -37,7 +37,7 @@ jobs:
           cache: maven # optional
       - name: Install the dependencies & run the tests
         working-directory: ./
-        run: mvn clean test build
+        run: mvn clean test package
           
       - name: jacoco-reporter
         # You may pin to the exact commit or the version.
