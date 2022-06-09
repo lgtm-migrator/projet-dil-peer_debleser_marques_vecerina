@@ -1,3 +1,4 @@
+import Statique.Statique;
 import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
 

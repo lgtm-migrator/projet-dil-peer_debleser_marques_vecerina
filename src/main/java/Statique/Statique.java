@@ -1,8 +1,9 @@
+package Statique;
+
 import SubCommands.*;
 import Version.AppVersionProvider;
 import picocli.CommandLine;
 
-import java.util.Properties;
 import java.util.concurrent.Callable;
 import picocli.CommandLine.Command;
 
