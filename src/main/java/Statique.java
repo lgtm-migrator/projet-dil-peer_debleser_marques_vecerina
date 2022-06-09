@@ -1,4 +1,5 @@
 import SubCommands.*;
+import Version.AppVersionProvider;
 import picocli.CommandLine;
 
 import java.util.Properties;
@@ -28,20 +29,5 @@ public class Statique implements Callable<Integer> {
         CommandLine.usage(this, System.out);
 
         return 0;
-    }
-}
-
-class AppVersionProvider implements CommandLine.IVersionProvider {
-
-    @Override
-    public String[] getVersion() {
-        final Properties properties = new Properties();
-        try {
-            properties.load(getClass().getClassLoader().getResourceAsStream("statique.properties"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return new String[]{"Statique_v" + properties.getProperty("version")};
     }
 }
