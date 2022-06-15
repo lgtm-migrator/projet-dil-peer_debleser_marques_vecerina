@@ -12,7 +12,6 @@ import org.commonmark.renderer.html.HtmlRenderer;
 import java.io.*;
 import java.nio.file.Path;
 
-
 /**
  * Class to convert a markdown file to a html one
  * @author Dimitri De Bleser
@@ -27,9 +26,9 @@ public class ConvertorToHtml implements Helper<String> {
     private final HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
 
     /**
-     *
-     * @param source
-     * @return
+     * Method to create a template for the layout of markdown files
+     * @param source path of file
+     * @return template of markdown file to html
      * @throws IOException
      */
     public static Template getMdTemplate(Path source) throws IOException {
@@ -40,9 +39,9 @@ public class ConvertorToHtml implements Helper<String> {
     }
 
     /**
-     *
-     * @param markdown
-     * @return
+     * Method to change a markdown file to html file
+     * @param markdown text
+     * @return the conversion of a md to html
      */
     private Object mdToHtml(String markdown){
         Node document = parser.parse(markdown);
@@ -50,10 +49,10 @@ public class ConvertorToHtml implements Helper<String> {
     }
 
     /**
-     *
-     * @param s
-     * @param options
-     * @return
+     * Method to apply the change of md to html
+     * @param s text of the markdown
+     * @param options not used
+     * @return html file
      */
     @Override
     public Object apply(String s, Options options){

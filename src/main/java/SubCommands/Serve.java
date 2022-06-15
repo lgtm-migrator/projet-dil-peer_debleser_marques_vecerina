@@ -30,16 +30,17 @@ public class Serve implements Callable<Integer> {
     private static boolean beingWatched;
 
     /**
-     * todo
+     * Method to carry out the fonctionalities of serve command
      * @return 0 when terminated with success and no exception was thrown
      * @throws IOException
      */
     @Override
     public Integer call() throws IOException {
 
+        // start if the user use the option watch
         if(beingWatched){
             var watcher = new Watcher(site);
-            watcher.watch(String.valueOf(Path.of(site.toString())));
+            watcher.watch(String.valueOf(Path.of(site.toString()))); //watch the directory for changes
             beingWatched = false;
         }
 

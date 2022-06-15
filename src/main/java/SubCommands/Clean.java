@@ -26,7 +26,7 @@ public class Clean implements Callable<Integer> {
     public Path site;
 
     /**
-     * todo
+     * Method to carry out the fonctionalities of clean command
      * @return 0 when the clean is done
      */
     @Override public Integer call() {

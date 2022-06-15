@@ -30,12 +30,11 @@ public class Init implements Callable<Integer> {
     public Path site;
 
     /**
-     * todo
-     * @return
-     * @throws URISyntaxException
+     * Method to carry out the fonctionalities of init command
+     * @return Ok status if build terminated with success
      * @throws IOException
      */
-    @Override public Integer call() throws URISyntaxException, IOException {
+    @Override public Integer call() throws IOException {
         File dir = site.toFile();
         if (!dir.exists() && dir.mkdir())
             throw new IOException("Can't create directory");
