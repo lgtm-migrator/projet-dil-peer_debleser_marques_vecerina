@@ -33,14 +33,27 @@ Where _path_ specifies the directoy to be cleaned.
 This command will remove the directory _build_ previously created by the building.
 
 
+#### 5 : Serve
+```
+statique serve [path]  
+```
+Where _path_ specifies static website's directory.
+The build command will be called, previous build will be overwritten.
+The website will be accessible on localhost TCP port 8080
 
+#### 6 : Publish
+```
+statique publish [path]  
+```
+Where _path_ specifies static website's directory.
+The build command will be called, previous build will be overwritten.
+SFTP connexion information must be included int the configuration file _config.yaml_
 
-
-
-
-
-
-
+#### 7 : version
+```
+statique --version  
+```
+Returns program's current version
 
 ### Table des matières
 
