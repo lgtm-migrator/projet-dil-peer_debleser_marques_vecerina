@@ -9,11 +9,9 @@ import com.github.jknack.handlebars.io.TemplateLoader;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
-
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
+
 
 /**
  * Class to convert a markdown file to a html one
@@ -28,6 +26,12 @@ public class ConvertorToHtml implements Helper<String> {
     private final Parser parser = Parser.builder().build();
     private final HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
 
+    /**
+     *
+     * @param source
+     * @return
+     * @throws IOException
+     */
     public static Template getMdTemplate(Path source) throws IOException {
         TemplateLoader loader = new FileTemplateLoader(source.resolve("template").toFile());
         Handlebars handlebars = new Handlebars(loader);
@@ -35,11 +39,22 @@ public class ConvertorToHtml implements Helper<String> {
         return handlebars.compile("layout");
     }
 
+    /**
+     *
+     * @param markdown
+     * @return
+     */
     private Object mdToHtml(String markdown){
         Node document = parser.parse(markdown);
         return htmlRenderer.render(document);
     }
 
+    /**
+     *
+     * @param s
+     * @param options
+     * @return
+     */
     @Override
     public Object apply(String s, Options options){
         return mdToHtml(s);

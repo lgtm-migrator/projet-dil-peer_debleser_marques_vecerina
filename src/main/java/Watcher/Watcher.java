@@ -8,6 +8,14 @@ import java.util.Map;
 
 import static java.nio.file.StandardWatchEventKinds.*;
 
+/**
+ *
+ * @author De Bleser Dimitri
+ * @author Vecerina Ivan
+ * @author Peer Vincent
+ * @author Marques Nora Andre
+ * @version 1.0
+ */
 public class Watcher {
 
     private final WatchService watcher;

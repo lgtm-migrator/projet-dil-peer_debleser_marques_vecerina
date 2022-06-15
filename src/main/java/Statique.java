@@ -11,6 +11,14 @@ import picocli.CommandLine.Command;
         subcommands = {Init.class, Clean.class, Build.class, Serve.class},
         versionProvider = AppVersionProvider.class)
 
+/**
+ *
+ * @author De Bleser Dimitri
+ * @author Vecerina Ivan
+ * @author Peer Vincent
+ * @author Marques Nora Andre
+ * @version 1.0
+ */
 public class Statique implements Callable<Integer> {
 
     @CommandLine.Option(names = {"-V", "--version"}, versionHelp = true, description = "version of the static site generator")
@@ -31,6 +39,13 @@ public class Statique implements Callable<Integer> {
     }
 }
 
+/**
+ * @author De Bleser Dimitri
+ * @author Vecerina Ivan
+ * @author Peer Vincent
+ * @author Marques Nora Andre
+ * @version 1.0
+ */
 class AppVersionProvider implements CommandLine.IVersionProvider {
 
     @Override
