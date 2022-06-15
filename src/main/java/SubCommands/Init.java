@@ -12,13 +12,29 @@ import java.util.concurrent.Callable;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 
+/**
+ * Initialize a static site in a specified path. This command could
+ * create or extend the directory sprecified with the path, with .yaml, .md
+ * files for example.
+ *
+ * @author Dimitri De Bleser
+ * @author André Marques Nora
+ * @author Vincent Peer
+ * @author Ivan Vecerina
+ * @version 1.0
+ */
 @Command(name = "init", description = "Initialize a static site directory")
 public class Init implements Callable<Integer> {
 
     @Parameters(paramLabel = "SITE", description = "The site to build")
     public Path site;
 
-    @Override public Integer call() throws URISyntaxException, IOException {
+    /**
+     * Method to carry out the fonctionalities of init command
+     * @return Ok status if build terminated with success
+     * @throws IOException
+     */
+    @Override public Integer call() throws IOException {
         File dir = site.toFile();
         if (!dir.exists() && dir.mkdir())
             throw new IOException("Can't create directory");
