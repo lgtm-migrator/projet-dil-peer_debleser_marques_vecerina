@@ -20,6 +20,7 @@ import picocli.CommandLine.Command;
  * Build a static site from a specified path. Once the build done, all
  * .md and .yaml files have been converted in a .html file in a new
  * directory named build. Other files still unchanged.
+ *
  * @author Dimitri De Bleser
  * @author André Marques Nora
  * @author Vincent Peer
