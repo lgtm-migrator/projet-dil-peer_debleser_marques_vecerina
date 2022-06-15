@@ -16,6 +16,16 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 
+/**
+ * Build a static site from a specified path. Once the build done, all
+ * .md and .yaml files have been converted in a .html file in a new
+ * directory named build. Other files still unchanged.
+ * @author Dimitri De Bleser
+ * @author André Marques Nora
+ * @author Vincent Peer
+ * @author Ivan Vecerina
+ * @version 1.0
+ */
 @Command(name = "build", description = "Build a static site")
 public class Build implements Callable<Integer> {
 
@@ -25,6 +35,11 @@ public class Build implements Callable<Integer> {
     @CommandLine.Option(names = {"-w", "--watch"}, description = "build site for every update")
     private static boolean beingWatched;
 
+    /**
+     * todo
+     * @return Ok status if build terminated with success
+     * @throws IOException
+     */
     @Override public Integer call() throws IOException {
 
         if(beingWatched){
@@ -34,10 +49,7 @@ public class Build implements Callable<Integer> {
         }
 
         Map<String, Object> configuration = ConvertorForYaml.parseYaml(site);
-
         Template template = ConvertorToHtml.getMdTemplate(site);
-
-
         new CommandLine(new Clean()).execute(site.toString());
 
         Files.walk(site)
