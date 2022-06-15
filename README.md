@@ -2,6 +2,36 @@
 ### <div align="left">André Nora Marques, Ivan Vecerina, Dimitri De Bleser et Vincent Peer</div>
 # <center> Projet DIL<center>
 
+
+
+
+### Installation manual
+To generate a static site, we offer some commands that gradually prepare each
+step to have a site that can be visited from a web browser. 
+
+#### Step 1 : Initialize a new static site
+```
+statique init [path]  
+```
+Where path brings to the directoy to initialize the content. This step will make
+a config.yaml and a index.md files, the first contains the configuration informations
+and the other contains the welcome page.
+
+#### Step 2 : Buildind 
+
+
+
+### User manual
+
+
+
+
+
+
+
+
+
+
 ### Table des matières
 
 
