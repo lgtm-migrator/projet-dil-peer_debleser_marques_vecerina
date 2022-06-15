@@ -1,13 +1,12 @@
 package SubCommands;
 
-import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.util.Scanner;
+import java.nio.file.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
@@ -19,35 +18,31 @@ public class Init implements Callable<Integer> {
     public Path site;
 
     @Override public Integer call() throws URISyntaxException, IOException {
-        File dir = site.toFile();
-        if (!dir.exists() && dir.mkdir())
-            throw new IOException("Can't create directory");
+        URI uri = this.getClass().getResource("/init").toURI();
 
-        // Getting details
-        Scanner scanner = new Scanner(System.in);
+        // Initialize a zip file system when the template is stored in a jar file
+        if (uri.getScheme().equals("jar")) {
+            Map<String, String> env = new HashMap<>();
+            env.put("create", "true");
+            FileSystems.newFileSystem(uri, env);
+        }
 
-        System.out.println("Enter title");
-        String title = scanner.nextLine();
+        Path template = Paths.get(uri);
+        Files.walk(template).forEach(source -> {
+            try {
+                if (Files.isRegularFile(source)) {
+                    // The FileSystem (file or jar) is inferred by the path.
+                    // As we copy files from the jar to the filesystem,
+                    // the toString method is called to prevent a wrong inference.
+                    Path target = site.resolve(template.relativize(source).toString());
+                    Files.createDirectories(target.getParent());
+                    Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
-        System.out.println("Enter description : ");
-        String description = scanner.nextLine();
-
-        System.out.println("Enter domain : ");
-        String domain = scanner.nextLine();
-
-        // Writing config file
-        File config = new File(dir, "config.yaml");
-        OutputStreamWriter out = new OutputStreamWriter( new FileOutputStream(config), StandardCharsets.UTF_8);
-        String toWrite = "title: " + title + "\n description: " + description + "\n domain: " + domain;
-        out.write(toWrite);
-        out.close();
-
-        // Writing index file
-        File index = new File(dir, "index.md");
-        out = new OutputStreamWriter(new FileOutputStream(index), StandardCharsets.UTF_8);
-        out.write("#" + title + "\n ## description \n" + description);
-        out.close();
         return 0;
     }
-
 }
