@@ -12,7 +12,13 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 
 /**
- * Serve the compilation result on a site
+ * Serve the build result on a web browser.
+ *
+ * @author Dimitri De Bleser
+ * @author André Marques Nora
+ * @author Vincent Peer
+ * @author Ivan Vecerina
+ * @version 1.0
  */
 @Command(name = "serve", description = "Serve a static site")
 public class Serve implements Callable<Integer> {
@@ -23,6 +29,11 @@ public class Serve implements Callable<Integer> {
     @CommandLine.Option(names = {"-w", "--watch"}, description = "build site for every update")
     private static boolean beingWatched;
 
+    /**
+     * todo
+     * @return 0 when terminated with success and no exception was thrown
+     * @throws IOException
+     */
     @Override
     public Integer call() throws IOException {
 
