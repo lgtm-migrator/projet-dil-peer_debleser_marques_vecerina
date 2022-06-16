@@ -34,9 +34,9 @@ public class InitTest {
         assertEquals(exitCode, 0);
         assertTrue(Files.exists(site.resolve("config.yaml")));
         assertTrue(Files.exists(site.resolve("index.md")));
-        assertTrue(Files.exists(site.resolve("init/pages/page1.md")));
-        assertTrue(Files.exists(site.resolve("init/pages/page2.md")));
-        assertTrue(Files.exists(site.resolve("init/template/layout.hbs")));
-        assertTrue(Files.exists(site.resolve("init/template/menu.hbs")));
+        assertTrue(Files.exists(site.resolve("pages/page1.md")));
+        assertTrue(Files.exists(site.resolve("pages/page2.md")));
+        assertTrue(Files.exists(site.resolve("template/layout.hbs")));
+        assertTrue(Files.exists(site.resolve("template/menu.hbs")));
     }
 }

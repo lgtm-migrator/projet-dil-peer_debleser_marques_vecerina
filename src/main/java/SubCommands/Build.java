@@ -38,7 +38,7 @@ public class Build implements Callable<Integer> {
         Template template = ConvertorToHtml.getMdTemplate(site);
 
 
-        new CommandLine(new Clean()).execute(site.toString());
+        new CommandLine(new Clean()).execute(site.toString()+"/build");
 
         Files.walk(site)
                 .filter(file -> file.toString().endsWith(".md"))

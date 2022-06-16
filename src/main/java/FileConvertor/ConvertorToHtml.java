@@ -27,7 +27,7 @@ public class ConvertorToHtml implements Helper<String> {
     private final HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
 
     public static Template getMdTemplate(Path source) throws IOException {
-        TemplateLoader loader = new FileTemplateLoader(source.resolve("init/template").toFile());
+        TemplateLoader loader = new FileTemplateLoader(source.resolve("template").toFile());
         Handlebars handlebars = new Handlebars(loader);
         handlebars.registerHelper("md", new ConvertorToHtml());
         return handlebars.compile("layout");

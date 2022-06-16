@@ -1,0 +1,6 @@
+SubCommands\BuildTest.class
+SubCommands\InitTest.class
+SubCommands\ServeTest.class
+StatiqueTest.class
+SubCommands\UtilsTest.class
+SubCommands\CleanTest.class
