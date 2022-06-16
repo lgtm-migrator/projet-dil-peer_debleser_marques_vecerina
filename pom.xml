@@ -35,7 +35,7 @@
         <dependency>
             <groupId>org.commonmark</groupId>
             <artifactId>commonmark</artifactId>
-            <version>0.18.2</version>
+            <version>0.19.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.jknack</groupId>
@@ -47,7 +47,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.8.2</version>
-            <scope>test</scope>
+            <scope>Test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

@@ -35,8 +35,8 @@ public class BuildTest {
         int buildExitCode = new CommandLine(new Statique()).execute("build", site.toString());
         assertEquals(buildExitCode, 0);
         assertTrue(Files.exists(site.resolve("build/index.html")));
-        assertTrue(Files.exists(site.resolve("build/pages/page-1.html")));
-        assertTrue(Files.exists(site.resolve("build/pages/page-2.html")));
+        assertTrue(Files.exists(site.resolve("build/pages/page1.html")));
+        assertTrue(Files.exists(site.resolve("build/pages/page2.html")));
         assertTrue(Files.readString(site.resolve("build/index.html")).contains("<title>Mon site internet | Home page </title>"));
         assertTrue(Files.readString(site.resolve("build/index.html")).contains("<h1>Titre 1</h1>"));
     }

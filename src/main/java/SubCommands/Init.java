@@ -7,6 +7,7 @@ import java.net.URISyntaxException;
 import java.nio.file.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
@@ -18,7 +19,7 @@ public class Init implements Callable<Integer> {
     public Path site;
 
     @Override public Integer call() throws URISyntaxException, IOException {
-        URI uri = this.getClass().getResource("/init").toURI();
+        URI uri = Objects.requireNonNull(this.getClass().getResource("/init")).toURI();
 
         // Initialize a zip file system when the template is stored in a jar file
         if (uri.getScheme().equals("jar")) {
