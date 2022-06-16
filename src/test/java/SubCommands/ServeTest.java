@@ -1,6 +1,6 @@
 package SubCommands;
 
-import java.Statique.Statique;
+import java.Statique;
 import java.SubCommands.Utils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
