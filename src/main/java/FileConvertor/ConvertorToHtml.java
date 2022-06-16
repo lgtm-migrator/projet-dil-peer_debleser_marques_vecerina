@@ -1,4 +1,4 @@
-package FileConvertor;
+package java.FileConvertor;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;

@@ -1,10 +1,10 @@
-package Parser;
+package java.Parser;
 
-import FileConvertor.ConvertorForYaml;
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.context.JavaBeanValueResolver;
 import com.github.jknack.handlebars.context.MapValueResolver;
+import java.FileConvertor.ConvertorForYaml;
 
 import java.io.IOException;
 import java.nio.file.Files;
