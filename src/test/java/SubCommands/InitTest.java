@@ -1,7 +1,7 @@
 package SubCommands;
 
-import Statique.Statique;
-
+import main.java.Statique.Statique;
+import main.java.SubCommands.Utils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,8 +34,8 @@ public class InitTest {
         assertEquals(exitCode, 0);
         assertTrue(Files.exists(site.resolve("config.yaml")));
         assertTrue(Files.exists(site.resolve("index.md")));
-        assertTrue(Files.exists(site.resolve("init/pages/page-1.md")));
-        assertTrue(Files.exists(site.resolve("init/pages/page-2.md")));
+        assertTrue(Files.exists(site.resolve("init/pages/page1.md")));
+        assertTrue(Files.exists(site.resolve("init/pages/page2.md")));
         assertTrue(Files.exists(site.resolve("init/template/layout.hbs")));
         assertTrue(Files.exists(site.resolve("init/template/menu.hbs")));
     }

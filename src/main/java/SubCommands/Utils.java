@@ -1,4 +1,4 @@
-package SubCommands;
+package main.java.SubCommands;
 
 import java.io.File;
 import java.io.IOException;

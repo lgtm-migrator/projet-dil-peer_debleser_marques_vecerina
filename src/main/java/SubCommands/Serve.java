@@ -1,4 +1,4 @@
-package SubCommands;
+package main.java.SubCommands;
 
 import Watcher.Watcher;
 import io.javalin.Javalin;

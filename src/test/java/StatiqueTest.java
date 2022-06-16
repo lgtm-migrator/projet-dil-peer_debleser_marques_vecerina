@@ -1,4 +1,4 @@
-import Statique.Statique;
+import main.java.Statique.Statique;
 import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
 

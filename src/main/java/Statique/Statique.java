@@ -1,7 +1,10 @@
-package Statique;
+package main.java.Statique;
 
-import SubCommands.*;
 import Version.AppVersionProvider;
+import main.java.SubCommands.Build;
+import main.java.SubCommands.Clean;
+import main.java.SubCommands.Init;
+import main.java.SubCommands.Serve;
 import picocli.CommandLine;
 
 import java.util.concurrent.Callable;

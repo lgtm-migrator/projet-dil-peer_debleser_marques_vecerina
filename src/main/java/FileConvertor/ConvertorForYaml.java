@@ -1,4 +1,4 @@
-package FileConvertor;
+package main.java.FileConvertor;
 
 import org.yaml.snakeyaml.Yaml;
 import java.io.FileInputStream;
