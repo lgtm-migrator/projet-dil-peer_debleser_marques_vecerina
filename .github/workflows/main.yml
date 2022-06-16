@@ -39,13 +39,13 @@ jobs:
         working-directory: ./
         run: mvn clean test package
           
-      - name: jacoco-reporter
-        # You may pin to the exact commit or the version.
-        # uses: PavanMudigonda/jacoco-reporter@d015c4a09637192cc838fdce7c01c36a84247e41
-        uses: PavanMudigonda/jacoco-reporter@v4.5
-        with:
-          # Path to the JaCoCo coverage results file which will be used to generate a report. The only coverage results format supported is the JaCoCo XML schema.
-          coverage_results_path: .documentation/jacoco-report.xml
+#      - name: jacoco-reporter
+#        # You may pin to the exact commit or the version.
+#        # uses: PavanMudigonda/jacoco-reporter@d015c4a09637192cc838fdce7c01c36a84247e41
+#        uses: PavanMudigonda/jacoco-reporter@v4.5
+#        with:
+#          # Path to the JaCoCo coverage results file which will be used to generate a report. The only coverage results format supported is the JaCoCo XML schema.
+#          coverage_results_path: .documentation/jacoco-report.xml
           
       - name: Official SonarQube Scan
         # You may pin to the exact commit or the version.
