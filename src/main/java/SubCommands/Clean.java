@@ -7,38 +7,36 @@ import java.util.concurrent.Callable;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
+import Utils.Utils;
 
+/**
+ * Clean a static site. Concretely, remove the build directory that
+ * was make by a build command.
+ *
+ * @author Dimitri De Bleser
+ * @author André Marques Nora
+ * @author Vincent Peer
+ * @author Ivan Vecerina
+ * @version 1.0
+ */
 @Command(name = "clean", description = "Clean a static site")
 public class Clean implements Callable<Integer> {
 
     @CommandLine.Parameters(paramLabel = "SITE", description = "The site to build")
     public Path site;
 
-    @Override public Integer call() throws IOException {
+    /**
+     * Method to carry out the fonctionalities of clean command
+     * @return 0 when the clean is done
+     */
+    @Override public Integer call() {
         File dir = site.toFile();
         if (!dir.exists()) {
             System.out.println("Nothing to clean");
             return 0;
         }
-        deleteFile(dir);
+        Utils.deleteFile(dir);
         System.out.println("Website files cleaned");
         return 0;
     }
-
-    private void deleteFile(File file) {
-        if (file.exists()) {
-            // Check if directory
-            if (file.isDirectory()) {
-                File[] files = file.listFiles();
-                if (files != null)
-                    // If is dir and has files delete these first
-                    for (File f : files)
-                        deleteFile(f);
-            }
-
-            // Finally delete file / folder
-            file.delete();
-        }
-    }
-
 }

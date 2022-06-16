@@ -64,3 +64,4 @@ public class Statique implements Callable<Integer> {
         }
     }
 }
+
