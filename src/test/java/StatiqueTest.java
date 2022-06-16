@@ -1,7 +1,7 @@
-import main.java.Statique.Statique;
 import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
 
+import java.Statique.Statique;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 

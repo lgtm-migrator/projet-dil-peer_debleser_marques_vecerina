@@ -1,8 +1,6 @@
-package main.java.FileConvertor;
+package java.FileConvertor;
 
 import org.yaml.snakeyaml.Yaml;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

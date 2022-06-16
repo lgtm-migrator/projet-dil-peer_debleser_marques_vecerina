@@ -1,4 +1,4 @@
-package main.java.SubCommands;
+package java.SubCommands;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,9 +9,9 @@ import java.util.concurrent.Callable;
 
 import Watcher.Watcher;
 import com.github.jknack.handlebars.Template;
-import main.java.FileConvertor.ConvertorForYaml;
-import main.java.FileConvertor.ConvertorToHtml;
-import main.java.Parser.PageParser;
+import java.FileConvertor.ConvertorForYaml;
+import java.FileConvertor.ConvertorToHtml;
+import java.Parser.PageParser;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
